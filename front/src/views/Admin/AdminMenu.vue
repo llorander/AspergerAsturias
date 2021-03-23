@@ -9,7 +9,7 @@
         <div class="opciones-menuusuarios">
             <router-link class="link" to="/admin-total-points">Puntos Totales</router-link>
             <router-link class="link" to="/add-reward">Añadir Recompensa</router-link>
-            <router-link class="link" to="/rewards-list">Listado de Recompensas</router-link>
+            <router-link class="link" to="/admin-rewards-list">Listado de Recompensas</router-link>
         </div>
     </div>
   </div>
