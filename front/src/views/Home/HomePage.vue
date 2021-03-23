@@ -1,8 +1,8 @@
 <template>
   <div class="home-page">
     <article class="home-page-box">
-      <router-link class="login-button" to="/login-page">Login</router-link>
-      <router-link class="register-button" to="/registration-page">Registro</router-link>
+      <router-link class="login-button" to="/login">Login</router-link>
+      <router-link class="register-button" to="/registration">Registro</router-link>
     </article>
   </div>
 </template>

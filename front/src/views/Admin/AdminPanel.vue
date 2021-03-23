@@ -17,15 +17,15 @@
       </article>
     </section>
     <section>
-      <article class="new-user-box">
+      <!-- <article class="new-user-box">
         <router-link class="new-user-button" to="">Nuevo Usuario</router-link>
         <router-link class="link-user-button" to="#">Enlazar Usuario</router-link>
-      </article>
-      <!-- <article class="user-management-box">
-        <router-link class="planning-button" to="">Planificación</router-link>
+      </article> -->
+      <article class="user-management-box">
+        <router-link class="planning-button" to="/admin-planning">Planificación</router-link>
         <router-link class="completed-tasks-button" to="">Tareas Completadas</router-link>
         <router-link class="points-button" to="">Puntos</router-link>
-      </article> -->
+      </article>
     </section>
   </div>
 </template>
