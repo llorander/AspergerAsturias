@@ -32,3 +32,13 @@ def auth_login():
 @app.route("/api/tasks", methods=["GET"])
 def tasks_get():
     return json_response(task_interactor.get_all_tasks()), 200
+
+@app.route("/api/tasks/<id>", methods=["GET"])
+def tasks_get_by_id(id):
+    return json_response(task_interactor.get_task_by_id(id)), 200
+
+@app.route("/api/tasks/save_task/<id>", methods=["POST"])
+def task_save():
+    task = request.get_json()
+    task_interactor.save_task(task)
+    return "", 200
