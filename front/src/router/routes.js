@@ -35,4 +35,8 @@ export const routes = [
     path: "/admin-rewards-list",
     component: () => import("@/views/Admin/AdminRewardsList.vue"),  
   },
+  {
+    path: "/admin-planning",
+    component: () => import("@/views/Admin/AdminPlanningPage.vue"),  
+  },
 ];
