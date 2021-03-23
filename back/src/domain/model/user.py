@@ -7,15 +7,17 @@ def hash_password(password):
 
 
 class User:
-    def __init__(self, id, username, name, password, is_admin):
-        self.id = id
-        self.username = username
-        self.name = name
-        self.password = password
-        self.is_admin = bool(is_admin)
+    def __init__(self, id_user, name_user, mail_user, password_user, points_user, state_user, id_admin):
+        self.id_user = id_user
+        self.name_user = name_user
+        self.mail_user = mail_user
+        self.password_user = password_user
+        self.points_user = points_user
+        self.state_user = bool(state_user)
+        self.id_admin = id_admin
 
     def check_password(self, password):
-        return hash_password(password) == self.password
+        return hash_password(password) == self.password_user
 
     def __getstate__(self):
 

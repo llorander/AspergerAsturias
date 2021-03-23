@@ -5,3 +5,9 @@ class TaskInteractor:
 
     def get_all_tasks(self):
         return self.task_repository.get_all()
+
+    def get_task_by_id(self, id):
+        return self.task_repository.get_by_id(id)
+
+    def save_task(self, task):
+        return self.task_repository.save_task(task)
