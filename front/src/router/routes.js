@@ -20,23 +20,31 @@ export const routes = [
     component: () => import("@/views/User/UserMenu.vue"),
   },
   {
+    path: "/task-list",
+    component: () => import("@/views/User/TaskList.vue"),
+  },
+  {
     path: "/admin-menu",
     component: () => import("@/views/Admin/AdminMenu.vue"),
   },
   {
     path: "/admin-total-points",
-    component: () => import("@/views/Admin/TotalPointsPage.vue"),  
+    component: () => import("@/views/Admin/TotalPointsPage.vue"),
   },
   {
     path: "/add-reward",
-    component: () => import("@/views/Admin/AddRewardPage.vue"),  
+    component: () => import("@/views/Admin/AddRewardPage.vue"),
   },
   {
     path: "/admin-rewards-list",
-    component: () => import("@/views/Admin/AdminRewardsList.vue"),  
+    component: () => import("@/views/Admin/AdminRewardsList.vue"),
   },
   {
     path: "/admin-planning",
-    component: () => import("@/views/Admin/AdminPlanningPage.vue"),  
+    component: () => import("@/views/Admin/AdminPlanningPage.vue"),
+  },
+  {
+    path: "/admin-total-points",
+    component: () => import("@/views/Admin/TotalPointsPage.vue"),
   },
 ];

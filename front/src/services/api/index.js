@@ -3,7 +3,7 @@ import requestHandler from "./requestHandler";
 const api = {
   ...requestHandler,
 
-  async getTasks() {
+  async getAllTasks() {
     return await this.get("/api/tasks");
   },
 };
