@@ -4,8 +4,8 @@ export const routes = [
     component: () => import("@/views/Home/HomePage.vue"),
   },
   {
-    path: "/about",
-    component: () => import("@/views/About/AboutPage.vue"),
+    path: "/admin-panel",
+    component: () => import("@/views/Admin/AdminPanel.vue"),
   },
   {
     path: "/tasks",
