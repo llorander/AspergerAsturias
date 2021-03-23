@@ -53,3 +53,10 @@ class TaskRepository(SqliteBasedRepository):
             },
         )
         conn.commit()
+
+    def delete_task(self, id):
+        conn = self._conn()
+        cursor = conn.cursor()
+        cursor.execute(
+            """DELETE FROM tasks WHERE tasks.id_task = ?""", (id,))
+        conn.commit()

@@ -107,4 +107,23 @@ def test_should_save_task(database):
     assert requested_task.name_task == "name-task-01"
     assert requested_task.pending_task == False
 
+def test_should_delete_by_id(database):
 
+    task_repository = TaskRepository(None, database)
+    interactor = TaskInteractor(None, task_repository)
+
+    database.executescript(
+        """
+        INSERT INTO tasks (id_task, name_task, description_task, points_task, start_datetime, end_datetime, pending_task, id_user) values
+            ("task-01", "task-name-01", "task-description-01", "10", "start-datetime-01", "end-datetime-01", "0", "id-user-01"),
+            ("task-02", "task-name-02", "task-description-02", "10", "start-datetime-02", "end-datetime-02", "0", "id-user-02"),
+            ("task-03", "task-name-03", "task-description-03", "10", "start-datetime-03", "end-datetime-03", "1", "id-user-03");
+        """
+    )
+
+    interactor.delete_task("task-02")
+    all_tasks = interactor.get_all_tasks()
+
+    assert len(all_tasks) == 2
+    assert all_tasks[0].id_task == "task-01"
+    assert all_tasks[1].id_task == "task-03"

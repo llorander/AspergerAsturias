@@ -14,7 +14,7 @@ class UserRepository(SqliteBasedRepository):
     def get_current_user(self):
         cursor = self._conn().cursor()
         cursor.execute(
-            "SELECT * FROM users where id = ?;", (self.get_current_user_id(),)
+            "SELECT * FROM users where id_user = ?;", (self.get_current_user_id(),)
         )
         data = cursor.fetchone()
 

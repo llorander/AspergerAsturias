@@ -42,3 +42,8 @@ def task_save():
     task = request.get_json()
     task_interactor.save_task(task)
     return "", 200
+
+@app.route("/api/tasks/delete_task/<id>", methods=["POST"])
+def task_delete():
+    task_interactor.delete_task(id)
+    return "", 200

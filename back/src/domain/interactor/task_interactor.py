@@ -11,3 +11,6 @@ class TaskInteractor:
 
     def save_task(self, task):
         return self.task_repository.save_task(task)
+
+    def delete_task(self, id):
+        return self.task_repository.delete_task(id)
