@@ -99,3 +99,81 @@ section {
     background: #78BFA5;
     color: #fff;
 }
+
+/* Estilos Sección puntos de usuario */
+.info-menuusuarios {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+}
+
+.usuario-menuusuarios {
+  background-color: white;
+  width: 100%;
+  border-radius: 15px;
+  border: 2px solid #515459;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.icon-menusuarios {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #78BFA5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.usuario-menuusuarios p {
+  color:#515459;
+  width: 85%;
+  text-align: center;
+}
+
+.opciones-menuusuarios {
+  background-color: white;
+  padding: 60px 5px;
+  width: 100%;
+  border-radius: 15px;
+  border: 2px solid #515459;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tarea-puntos {
+  width: 90%;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  color: #AA6666;
+}
+
+.nombre-puntos {
+  display: block;
+  width: 70%;
+  color: #515455;
+  text-align: left;
+}
+
+.puntos-icon {
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  line-height: 15px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: #515455;
+}
+
