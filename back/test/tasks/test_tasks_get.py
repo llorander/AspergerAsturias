@@ -13,9 +13,14 @@ def database():
         """
         DROP TABLE IF EXISTS tasks;
         CREATE TABLE tasks (
-            id varchar primary key,
-            text varchar,
-            pending boolean
+            id_task varchar primary key,
+            name_task varchar,
+            description_task varchar,
+            points_task integer,
+            start_datetime varchar,
+            end_datetime varchar,
+            pending_task varchar,
+            id_user varchar
         );
         """
     )
@@ -36,10 +41,10 @@ def test_should_get_array_if_data(database):
 
     database.executescript(
         """
-        INSERT INTO tasks (id, text, pending) values
-            ("task-1", "Pensar primero con la cabeza", 0),
-            ("task-2", "Aprender algo de javascript", 1),
-            ("task-3", "Hacer una aplicaci\u00f3n superchula", 1);
+        INSERT INTO tasks (id_task, name_task, description_task, points_task, start_datetime, end_datetime, pending_task, id_user) values
+            ("task-01", "task-name-01", "task-description-01", "10", "start-datetime-01", "end-datetime-01", "0", "id-user-01"),
+            ("task-02", "task-name-02", "task-description-02", "10", "start-datetime-02", "end-datetime-02", "0", "id-user-02"),
+            ("task-03", "task-name-03", "task-description-03", "10", "start-datetime-03", "end-datetime-03", "0", "id-user-03");
         """
     )
     task_repository = TaskRepository(None, database)
@@ -48,12 +53,58 @@ def test_should_get_array_if_data(database):
 
     all_tasks = interactor.get_all_tasks()
 
-    assert all_tasks[0].id == "task-1"
-    assert all_tasks[0].text == "Pensar primero con la cabeza"
-    assert all_tasks[0].pending is False
+    assert len(all_tasks) == 3
 
-    assert [i.id for i in all_tasks] == [
-        "task-1",
-        "task-2",
-        "task-3",
-    ]
+    assert all_tasks[0].id_task == "task-01"
+    assert all_tasks[0].name_task == "task-name-01"
+    assert all_tasks[0].description_task == "task-description-01"
+    assert all_tasks[0].points_task == 10
+    assert all_tasks[0].start_datetime == "start-datetime-01"
+    assert all_tasks[0].end_datetime == "end-datetime-01"
+    assert all_tasks[0].pending_task == False
+    assert all_tasks[0].id_user == "id-user-01"
+
+def test_should_get_task_by_id(database):
+
+    database.executescript(
+        """
+        INSERT INTO tasks (id_task, name_task, description_task, points_task, start_datetime, end_datetime, pending_task, id_user) values
+            ("task-01", "task-name-01", "task-description-01", "10", "start-datetime-01", "end-datetime-01", "0", "id-user-01"),
+            ("task-02", "task-name-02", "task-description-02", "10", "start-datetime-02", "end-datetime-02", "0", "id-user-02"),
+            ("task-03", "task-name-03", "task-description-03", "10", "start-datetime-03", "end-datetime-03", "1", "id-user-03");
+        """
+    )
+    task_repository = TaskRepository(None, database)
+
+    interactor = TaskInteractor(None, task_repository)
+
+    requested_task = interactor.get_task_by_id("task-03")
+
+    assert requested_task.id_task == "task-03"
+    assert requested_task.name_task == "task-name-03"
+    assert requested_task.pending_task == True
+
+def test_should_save_task(database):
+
+    task_repository = TaskRepository(None, database)
+    interactor = TaskInteractor(None, task_repository)
+
+    task = {
+        "id_task" : "task-01",
+        "name_task" : "name-task-01",
+        "description_task" : "description-task-01",
+        "points_task" : "10",
+        "start_datetime" : "start-datetime-01",
+        "end_datetime" : "end-datetime",
+        "pending_task" : "0",
+        "id_user" : "user-01",
+    }
+
+    interactor.save_task(task)
+    requested_task = interactor.get_task_by_id("task-01")
+
+    assert requested_task.id_task == "task-01"
+    assert requested_task.name_task == "name-task-01"
+    assert requested_task.pending_task == False
+
+
